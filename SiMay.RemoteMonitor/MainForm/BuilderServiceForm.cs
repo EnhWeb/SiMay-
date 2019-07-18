@@ -1,4 +1,5 @@
-﻿using SiMay.Core.Entitys;
+﻿using SiMay.Basic;
+using SiMay.Core.Entitys;
 using SiMay.RemoteMonitor.Entitys;
 using SiMay.Serialize;
 using System;
@@ -83,25 +84,9 @@ namespace SiMay.RemoteMonitor.MainForm
                 IsMutex = mutex.Checked,
                 SessionMode = int.Parse(AppConfiguration.SessionMode)
             };
-
-            if (!(ra3.Checked || ra4.Checked))
-            {
-                logList.Items.Add("请选择服务端运行时版本!");
-                return;
-            }
-
             string name = "SiMayService.exe";
 
-            //if (ApplicationConfiguration.SessionMode != "0")
-            //    name = "SiMayServiceEx.exe";
-
-            string datfileName = Application.StartupPath + "\\dat\\{0}\\{1}";
-
-            if (ra3.Checked)
-                datfileName = string.Format(datfileName, "3.5", name);
-
-            if (ra4.Checked)
-                datfileName = string.Format(datfileName, "4.0", name);
+            string datfileName = Application.StartupPath + "\\dat\\{0}".FormatTo(name);
 
             logList.Items.Add("准备将配置信息写入文件中");
 

@@ -30,6 +30,7 @@
         {
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.mutex = new System.Windows.Forms.CheckBox();
             this.sutoRun = new System.Windows.Forms.CheckBox();
             this.ishide = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -48,14 +49,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.logList = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ra4 = new System.Windows.Forms.RadioButton();
-            this.ra3 = new System.Windows.Forms.RadioButton();
-            this.mutex = new System.Windows.Forms.CheckBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -79,6 +75,16 @@
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "功能选项";
+            // 
+            // mutex
+            // 
+            this.mutex.AutoSize = true;
+            this.mutex.Location = new System.Drawing.Point(193, 20);
+            this.mutex.Name = "mutex";
+            this.mutex.Size = new System.Drawing.Size(72, 16);
+            this.mutex.TabIndex = 11;
+            this.mutex.Text = "进程互斥";
+            this.mutex.UseVisualStyleBackColor = true;
             // 
             // sutoRun
             // 
@@ -234,9 +240,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.logList);
-            this.groupBox2.Location = new System.Drawing.Point(11, 223);
+            this.groupBox2.Location = new System.Drawing.Point(11, 142);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(402, 124);
+            this.groupBox2.Size = new System.Drawing.Size(402, 205);
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "配置日志";
@@ -249,7 +255,7 @@
             this.logList.ItemHeight = 12;
             this.logList.Location = new System.Drawing.Point(10, 15);
             this.logList.Name = "logList";
-            this.logList.Size = new System.Drawing.Size(382, 100);
+            this.logList.Size = new System.Drawing.Size(382, 184);
             this.logList.TabIndex = 9;
             // 
             // button3
@@ -262,57 +268,11 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.ra4);
-            this.groupBox1.Controls.Add(this.ra3);
-            this.groupBox1.Location = new System.Drawing.Point(11, 142);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(402, 76);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = ".NET运行时版本";
-            // 
-            // ra4
-            // 
-            this.ra4.AutoSize = true;
-            this.ra4.Location = new System.Drawing.Point(106, 27);
-            this.ra4.Margin = new System.Windows.Forms.Padding(2);
-            this.ra4.Name = "ra4";
-            this.ra4.Size = new System.Drawing.Size(71, 16);
-            this.ra4.TabIndex = 1;
-            this.ra4.Text = ".NET 4.0";
-            this.ra4.UseVisualStyleBackColor = true;
-            // 
-            // ra3
-            // 
-            this.ra3.AutoSize = true;
-            this.ra3.Location = new System.Drawing.Point(12, 27);
-            this.ra3.Margin = new System.Windows.Forms.Padding(2);
-            this.ra3.Name = "ra3";
-            this.ra3.Size = new System.Drawing.Size(71, 16);
-            this.ra3.TabIndex = 0;
-            this.ra3.Text = ".NET 3.5";
-            this.ra3.UseVisualStyleBackColor = true;
-            // 
-            // mutex
-            // 
-            this.mutex.AutoSize = true;
-            this.mutex.Location = new System.Drawing.Point(193, 20);
-            this.mutex.Name = "mutex";
-            this.mutex.Size = new System.Drawing.Size(72, 16);
-            this.mutex.TabIndex = 11;
-            this.mutex.Text = "进程互斥";
-            this.mutex.UseVisualStyleBackColor = true;
-            // 
             // BuilderServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 489);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -329,8 +289,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,9 +315,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtAccesskey;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton ra4;
-        private System.Windows.Forms.RadioButton ra3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox mutex;
     }

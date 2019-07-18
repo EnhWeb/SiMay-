@@ -60,10 +60,21 @@ namespace SiMay.Core.ScreenSpy
 
         public static byte[] CaptureNoCursorToBytes(int width, int height)
         {
-            using (MemoryStream ms = new MemoryStream())
+            try
             {
-                SizeImage(CaptureNoCursor(), width, height).Save(ms, ImageFormat.Jpeg);
-                return ms.ToArray();
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    var img = CaptureNoCursor();
+                    if (img == null)
+                        throw new Exception("img is null!");
+                    SizeImage(img, width, height).Save(ms, ImageFormat.Jpeg);
+                    return ms.ToArray();
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteErrorByCurrentMethod(ex.Message + "," + width + "," + height);
+                return new byte[0];
             }
         }
 
