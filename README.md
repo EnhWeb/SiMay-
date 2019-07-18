@@ -15,37 +15,37 @@
   
 # 系统项目结构
 
-##SiMay.Common.Core【公共核心功能】##
+### SiMay.Common.Core【公共核心功能】##
  - SiMay.Basic--框架级通用库
  - SiMay.Core--系统统一公共库【如统一的通讯指令丶共用组件丶通信数据实体丶字符串编解码等..】
  - SiMay.Serialize--轻量级二进制序列化库【作用:系统通信数据实体化】
 
-##SiMay.RemoteMonitor.Windows【Windows控制端】##
+### SiMay.RemoteMonitor.Windows【Windows控制端】##
  - SiMay.RemoteMonitor--控制端主程序
 
-##SiMay.RemoteService【远程服务端】##
+### SiMay.RemoteService【远程服务端】##
  - SiMay.RemoteClient.NewCore--服务端主程序
  - SiMay.UpdateClient--服务端更新程序【未启用】
  - SiMay.Daemon--服务端守护进程【未启用】
 
-##SiMay.SessionProvider【会话提供库】##
+### SiMay.SessionProvider【会话提供库】##
  - SiMay.Net.SessionProvider--会话提供库【作用：提供服务器监听模式或者中间会话代理协议】(技术验证，不定时重构)
  - SiMay.Net.SessionProvider.Core--代理协议统一公用库【作用：统一中间库和服务器的通信指令及序列化等】(技术验证，不定时重构)
  - SiMay.Net.SessionProviderService--中间会话代理服务器【作用：提供保持服务端会话保持丶数据转发功能，基于此实现多平台端监控】(技术验证，不定时重构)
 
-##SiMay.Sockets【Socket通信库】##
+### SiMay.Sockets【Socket通信库】##
  - SiMay.Socket.V4 1.0--通信引擎【.NET4.0】
  - SiMay.Socket 1.0--通信引擎【支持.NET 4.0以下】
  - SiMaySocketTestApp--通信引擎测试程序
 
-##SiMay.Web.MonitorService【Web监控服务端】##
+### SiMay.Web.MonitorService【Web监控服务端】##
  - SiMay.Net.HttpRemoteMonitorService--WebSocket监控服务端
  - WebRemoteMonitorSystem--Web监控前端页面
 
-##编译
+### 编译
 1.Bin目录为生成目录，重新生成后，主控程序将编译到此目录，Bin->dat目录为服务端目录，dat->3.5 or 4.0代表框架版本(版本5.0后3.5不再支持)，需手动将SiMayService.exe拷贝到4.0目录下即可。(没有目录新建一下)
 
-##运行
+### 运行
 1.局域网
 主控端:打开主控程序SiMayRemoteMonitor.exe，确认系统设置服务器地址为0.0.0.0(监听本机所有网卡)，端口默认5200，确认会话模式为:本地服务器，然后保存配置重启程序,
 重启后日志输出监听成功，即主控端设置正确。
@@ -65,7 +65,7 @@
 配置IIS，部署SiMay.WebRemoteMonitor网站，编译启动SiMay.Net.HttpRemoteMonitorService，配置地址指向中间服务器ip，端口即可(无系统设置，需手动配置配置文件)，如连接成功，中间服务器出现主控制连接在线日志即可
 使用浏览器，访问SiMay.WebRemoteMonitor网站，输入SiMay.Net.HttpRemoteMonitorService配置的账号密码即可，当有中间服务器有被控端会话时，将自动连接至http服务，此时网页可看到被控服务端计算机屏幕视图，长按视图打开更多功能。
 
-# 技术架构
+### 技术架构
  - 基于IOCP的异步Socket高性能通信模型
  - 采用热区域逐行扫描算法的远程桌面
  - 语音通讯采用Windows WaInXX等Api实现
@@ -73,22 +73,22 @@
  - 键盘记录采用HOOK技术捕获全局键盘消息
  - Web端监控采用了WebSocket等技术实现
 
-# 开发环境
+### 开发环境
  - Visual Studio 2015 以上
 
-# 参与贡献
+### 参与贡献
  - Fork 本仓库
  - 新建 Feat_xxx 分支
  - 提交代码
  - 新建 Pull Request
 
-# 未来构想
+### 未来构想
  - 实现多平台控制端同步监控
  - 完善更多web监控功能
 
-# SiMay远程监控管理系统更新说明 --by_koko
+### SiMay远程监控管理系统更新说明 --by_koko
 
-##5.0更新##
+### 5.0更新
 1. 优化了通讯库,支持FULL丶PACK数据处理方式，更友好的配置接口
 2. 新增中间会话转发服务,增加了SessionProvider层，控制端支持监听模式丶中间会话模式，在此基础上实现了Web监控服务，支持Web方式监控
 3. 增强了远程桌面,支持全屏监控的远程鼠标控制
@@ -101,7 +101,7 @@
 10.系统传输数据实体化 -- 2019-6-4
 11.二进制序列化器采用反射缓存，提高系统性能 --待实现
 
-##4.0更新##
+### 4.0更新
 1. 重写了通讯层，解决网络环境极差时频繁断开连接的情况，实现了对象池，以更好的并发能力应对大规模的客户端数据交互
 2. 设计了更稳定的通讯层接口，通讯层彻底与逻辑层分离
 3. 优化了部分功能的通讯协议
