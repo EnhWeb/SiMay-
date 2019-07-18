@@ -1,14 +1,14 @@
 ﻿using Newtonsoft.Json;
 using SiMay.Core;
+using SiMay.Core.Enums;
+using SiMay.Core.Packets;
 using SiMay.Net.HttpRemoteMonitorService.HttpModel;
 using SiMay.Net.HttpRemoteMonitorService.HttpPackageModel;
 using SiMay.Net.HttpRemoteMonitorService.Properties;
 using SiMay.Net.SessionProvider;
 using SiMay.Net.SessionProvider.Notify;
 using SiMay.Net.SessionProvider.SessionBased;
-using SiMay.Package;
-using SiMay.Package.Main;
-using SiMay.Package.MessageBoxPack;
+using SiMay.Serialize;
 using SuperWebSocket;
 using System;
 using System.Collections.Generic;
@@ -269,7 +269,7 @@ namespace SiMay.Net.HttpRemoteMonitorService
 
         private void ProcessLogin(SessionHandler session)
         {
-            LoginPack login = PacketBuilderHelper.BuilderPacket<LoginPack>(session.CompletedBuffer.GetMessageBody());
+            LoginPack login = PacketSerializeHelper.DeserializePacket<LoginPack>(session.CompletedBuffer.GetMessageBody());
 
 
             session.AppTokens[2] = login.OpenScreenWall;
@@ -280,7 +280,7 @@ namespace SiMay.Net.HttpRemoteMonitorService
             {
                 Msg = AJaxMsgCommand.S_SESSION_LOGIN,
                 Id = (string)session.AppTokens[1],
-                OS = login.SysEdition,
+                OS = login.OSVersion,
                 MachineName = login.MachineName,
                 Des = login.Remark,
                 DesktopViewOpen = login.OpenScreenWall.ToString().ToLower()
@@ -485,7 +485,7 @@ namespace SiMay.Net.HttpRemoteMonitorService
                 msg.MessageTitle = "系统通知";
                 msg.MessageBody = body;
 
-                byte[] data = MessageHelper.CopyMessageHeadTo(MessageHead.S_MAIN_MESSAGEBOX, PacketBuilderHelper.BuilderPacketBytes(msg));
+                byte[] data = MessageHelper.CopyMessageHeadTo(MessageHead.S_MAIN_MESSAGEBOX, PacketSerializeHelper.SerializePacket(msg));
                 this._sessionDictionary[id].SendAsync(data);
             }
         }

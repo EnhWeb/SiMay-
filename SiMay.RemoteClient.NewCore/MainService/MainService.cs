@@ -427,7 +427,7 @@ namespace SiMay.RemoteService.NewCore.MainService
 
             var loginPack = new LoginPack();
             loginPack.IPV4 = SystemInfoUtil.GetLocalIPV4();
-            loginPack.MachineName = Environment.MachineName;
+            loginPack.MachineName = Environment.MachineName ?? "";
             loginPack.Remark = RemarkInfomation;
             loginPack.ProcessorCount = Environment.ProcessorCount;
             loginPack.ProcessorInfo = SystemInfoUtil.GetMyCpuInfo;

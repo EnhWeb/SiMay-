@@ -19,11 +19,11 @@ namespace SiMay.RemoteService.NewCore
 {
     static class Program
     {
-        static string ip = "94.191.115.121";
-        static int port = 522;
+        //static string ip = "94.191.115.121";
+        //static int port = 522;
 
-        //static string ip = "127.0.0.1";
-        //static int port = 5200;
+        static string ip = "127.0.0.1";
+        static int port = 5200;
 
         /// <summary>
         /// 应用程序的主入口点。
@@ -34,7 +34,7 @@ namespace SiMay.RemoteService.NewCore
             string remarkInfomation = "SiMayService";//初始化备注信息
             bool isAutoStart = false;
             bool isHide = false;
-            int sessionMode = 1;//服务器模式 //1是中间服务器模式
+            int sessionMode = 0;//服务器模式 //1是中间服务器模式
             int accesskey = 5200;//初始连接密码
             string id = "AAAAAAAAAAA11111111";
             bool isMutex = false;

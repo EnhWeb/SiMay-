@@ -119,6 +119,10 @@
       <Project>{bf5b6f41-d688-447f-bf81-ea821216f188}</Project>
       <Name>SiMay.Net.SessionProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SiMay.Serialize\SiMay.Serialize.csproj">
+      <Project>{4888d6bb-46d9-4519-8758-e13e397aa226}</Project>
+      <Name>SiMay.Serialize</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
