@@ -69,7 +69,6 @@ namespace SiMay.RemoteService.NewCore
 
                         Thread.Sleep(5000);
                     }
-                    ip = strlphost;
                     port = lpport;
                 }
             }

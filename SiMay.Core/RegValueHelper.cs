@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System;
 
 namespace SiMay.Core
 {
@@ -25,7 +26,7 @@ namespace SiMay.Core
 
         public static string GetValue(string node)
         {
-            string value = null;
+            string value = "";
 
             try
             {
@@ -33,7 +34,10 @@ namespace SiMay.Core
                 RegistryKey software = key.OpenSubKey("SYSTEM\\SoftWare\\SiMayService");
                 value = software.GetValue(node).ToString();
             }
-            catch { }
+            catch(Exception e)
+            {
+
+            }
 
             return value;
         }
